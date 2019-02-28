@@ -8,7 +8,8 @@ A bottom bar with an expanding title effect for android
 
 - Written In Kotlin
 - Handle 5 Tabs At Max
-- Light weight
+- Lite weight
+- Min SDK 16
 
 
 
