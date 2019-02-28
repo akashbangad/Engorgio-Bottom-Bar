@@ -3,10 +3,9 @@ package com.engorgio.engorgiobottombar
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
-import android.os.Build
 import android.support.constraint.ConstraintLayout
+import android.support.transition.TransitionManager
 import android.support.v4.content.ContextCompat
-import android.transition.TransitionManager
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -49,7 +48,7 @@ class EngorgioBottomBar : ConstraintLayout, View.OnClickListener {
                 iconViews[index].setColorFilter(Color.DKGRAY, android.graphics.PorterDuff.Mode.SRC_IN)
                 backgroundViews[index].setOnClickListener(this@EngorgioBottomBar)
             }
-        }else{
+        } else {
             throw Throwable("Maximum allowed tabs are limited to 5, please make sure you are setting 5 tabs")
         }
     }
@@ -111,10 +110,8 @@ class EngorgioBottomBar : ConstraintLayout, View.OnClickListener {
             R.id.tab_5 -> index = 4
         }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            TransitionManager.beginDelayedTransition(this@EngorgioBottomBar)
-        }
 
+        TransitionManager.beginDelayedTransition(this@EngorgioBottomBar)
         titleViews[index].text = userTabs[index].title
         titleViews[index].setTextColor(Color.WHITE)
 
@@ -126,11 +123,13 @@ class EngorgioBottomBar : ConstraintLayout, View.OnClickListener {
 
         onTabClickListener?.onTabClicked(index, userTabs[index])
 
+        val transparentDrawable = GradientDrawable()
+        transparentDrawable.setColor(Color.TRANSPARENT)
         for (i in 0 until userTabs.size) {
             if (i != index) {
                 titleViews[i].setTextColor(Color.DKGRAY)
                 iconViews[i].setColorFilter(Color.DKGRAY, android.graphics.PorterDuff.Mode.SRC_IN)
-                backgroundViews[i].background = null
+                backgroundViews[i].background = transparentDrawable
                 titleViews[i].text = ""
             }
         }
