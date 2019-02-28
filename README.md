@@ -72,5 +72,5 @@ Kotlin
 			})
 		}
 	}
-```kotlin
+```
 
