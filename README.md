@@ -45,7 +45,7 @@ XML
 
 
 Kotlin
-
+```kotlin
 	class MainActivity : AppCompatActivity() {
     	override fun onCreate(savedInstanceState: Bundle?) {
 			super.onCreate(savedInstanceState)
@@ -72,5 +72,5 @@ Kotlin
 			})
 		}
 	}
-
+```kotlin
 
