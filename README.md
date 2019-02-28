@@ -29,7 +29,7 @@ Project Level
 App Level
 ```gradle
 	dependencies {
-		implementation 'com.github.AkashBang:Engorgio-Bottom-Bar:0.1.0'
+		implementation 'com.github.AkashBang:Engorgio-Bottom-Bar:0.1.1'
 		}
 
 ```
