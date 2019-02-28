@@ -17,10 +17,20 @@ class MainActivity : AppCompatActivity() {
         val tab4 = ETab(R.drawable.avatar, "User", Color.parseColor("#4adcfd"))
         val tablist = arrayListOf(tab1, tab2, tab3, tab4)
 
+
+        // You can optionally set extras to tabs which you can retrieve back on the tab clicked callback
+        val extra = Bundle()
+        extra.putString("Key","Value")
+        tab1.extra = extra
+
+
         engorgioBar.setUserTabs(tablist)
         engorgioBar.setOnTabClickListener(object :EngorgioBottomBar.OnTabClickListener{
 
             override fun onTabClicked(position: Int, eTab: ETab) {
+                //Handle Tab Click Here
+
+
             }
 
         })

@@ -23,6 +23,10 @@ class EngorgioBottomBar : ConstraintLayout, View.OnClickListener {
     private var userTabs = ArrayList<ETab>()
     private var onTabClickListener: OnTabClickListener? = null
 
+    companion object {
+        const val MAXIMUM_TAB_LIMIT = 5
+    }
+
     constructor(context: Context) : super(context) {
         setUpView()
     }
@@ -37,12 +41,16 @@ class EngorgioBottomBar : ConstraintLayout, View.OnClickListener {
 
 
     fun setUserTabs(tabs: ArrayList<ETab>) {
-        userTabs = tabs
-        userTabs.forEachIndexed { index, eTab ->
-            backgroundViews[index].visibility = View.VISIBLE
-            iconViews[index].setImageResource(eTab.iconRes)
-            iconViews[index].setColorFilter(Color.DKGRAY, android.graphics.PorterDuff.Mode.SRC_IN)
-            backgroundViews[index].setOnClickListener(this@EngorgioBottomBar)
+        if (tabs.size < MAXIMUM_TAB_LIMIT) {
+            userTabs = tabs
+            userTabs.forEachIndexed { index, eTab ->
+                backgroundViews[index].visibility = View.VISIBLE
+                iconViews[index].setImageResource(eTab.iconRes)
+                iconViews[index].setColorFilter(Color.DKGRAY, android.graphics.PorterDuff.Mode.SRC_IN)
+                backgroundViews[index].setOnClickListener(this@EngorgioBottomBar)
+            }
+        }else{
+            throw Throwable("Maximum allowed tabs are limited to 5, please make sure you are setting 5 tabs")
         }
     }
 
@@ -135,3 +143,5 @@ class EngorgioBottomBar : ConstraintLayout, View.OnClickListener {
         fun onTabClicked(position: Int, eTab: ETab)
     }
 }
+
+
