@@ -16,7 +16,7 @@ A bottom bar with an expanding title effect for android
 **Dependency**
 
 Project Level
-
+```gradle
 	allprojects {
 		repositories {
 			...
@@ -24,25 +24,25 @@ Project Level
 		}
 	}
 
-
+```
 App Level
-
+```gradle
 	dependencies {
 		implementation 'com.github.AkashBang:Engorgio-Bottom-Bar:0.1.0'
 		}
 
-
+```
 **Code Example**
 
 XML
-
+```xml
 	<com.engorgio.engorgiobottombar.EngorgioBottomBar
             android:background="#FFF"
             android:layout_gravity="bottom"
             android:id="@+id/engorgioBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-
+```
 
 Kotlin
 ```kotlin
