@@ -40,7 +40,7 @@ class EngorgioBottomBar : ConstraintLayout, View.OnClickListener {
 
 
     fun setUserTabs(tabs: ArrayList<ETab>) {
-        if (tabs.size < MAXIMUM_TAB_LIMIT) {
+        if (tabs.size <= MAXIMUM_TAB_LIMIT) {
             userTabs = tabs
             userTabs.forEachIndexed { index, eTab ->
                 backgroundViews[index].visibility = View.VISIBLE
